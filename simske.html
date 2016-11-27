@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="author" content="卢威- LU WEI" />
+    <title> Simplification and Skeleton </title>
+    <link rel="stylesheet" href="leaflet/leaflet.css"> </link>
+    <script src="leaflet/leaflet.js"></script>
+    <script src="cql.js"></script>
+    <script src="simske.js"></script>
+    <script src="poly2tri.min.js"></script>
+    <script src="turf.min.js"></script>
+    <style>
+      html,body {
+        margin:0px;
+        padding:0px;
+        font-size: 12px;
+        font-family: sans-serif;
+      }
+      #mapcanvas{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0px;
+        bottom: 0px;
+      }
+
+      .legend {
+        position:center;
+	      z-index:0;
+	      opacity:.8;
+        padding-top:20px;
+    	  background-color:white;
+        text-align:center;
+        font-size: 16px;
+    }
+    input[type=range] {
+      width: 300px;
+      border-radius: 10px; /*这个属性设置使填充进度条时的图形为圆角*/
+    }
+    </style>
+  </head>
+  <body>
+    <script type="text/javascript">
+      window.onload = initMap;
+   </script>
+   <div id ="mapcanvas"></div>
+   <div class="legend">
+     <label>Simplification and Skeleton</label>
+     <input id="label" type="text" size="1" value="0.01" readonly="readonly"/>
+     <br/>
+     <input type="range" size="300px" id="tolerance" value="0.01" min="0.01" max="1" step="0.01" onchange="simplify('tolerance','label')"/>
+
+   </div>
+    <!-- <div id ="panel">
+     <input type=button id=b1 value="Triangle" onclick="triangle();">
+      <input type=button id=b1 value="Skeleton" onclick="skeleton();">
+      <input type=button id=b1 value="Simplify" onclick="simplify();">
+
+    </div>-->
+  </body>
+
+</html>
